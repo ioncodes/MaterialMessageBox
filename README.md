@@ -28,3 +28,19 @@
         msgBoxShow.visible = true
     }
     ```
+
+# Properties
+
+```qml
+boxMessage: "Hey this is a looooong MessageBox! I also support multiline! :)"
+boxTitle: "MaterialMessageBox Tester"
+
+/* Optional properties */
+boxButtonAcceptColor: Material.Blue
+boxButtonAcceptHighlighted: true
+boxButtonAcceptLabel: "OK"
+boxWidth: 300
+boxHeight: 150
+```
+
+boxMessage & boxTitle are needed. The others are optional.
