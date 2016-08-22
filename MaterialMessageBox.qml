@@ -8,24 +8,40 @@ ApplicationWindow {
     Material.theme: Material.Dark
     Material.accent: Material.color(Material.Purple)
     visible: false
-    minimumWidth: 250
-    maximumWidth: 250
-    minimumHeight: 150
-    maximumHeight: 150
 
     signal accepted
 
-    property string message: ""
+
+    property string boxMessage: ""                            // msgBox Message
+    property string boxTitle: ""                              // msgBox Title
+
+
+    property string boxButtonAcceptLabel: "OK"                // msgBox 'Accept' Button Text
+
+    property bool boxButtonAcceptHighlighted: true            // msgBox 'Accept' Button Highlighted
+
+    property int boxWidth: 300                                // msgBox Width
+    property int boxHeight: 150                               // msgBox Height
+
+    property real boxButtonAcceptColor: Material.Blue         // msgBox 'Accept' Button Color (Material enum); automatic color fix
+
+
+    minimumWidth: boxWidth
+    maximumWidth: boxWidth
+    minimumHeight: boxHeight
+    maximumHeight: boxHeight
+
+    title: boxTitle
 
     Button {
         id: btnOk
-        text: "OK"
+        text: boxButtonAcceptLabel
 
         x: (ApplicationWindow.width - 16) - btnOk.width
         y: (ApplicationWindow.height - 16) - btnOk.height
 
-        highlighted: true
-        Material.accent: Material.color(Material.Blue)
+        highlighted: boxButtonAcceptHighlighted
+        Material.accent: Material.color(boxButtonAcceptColor)
         onClicked: {
             accepted()
             window.close()
@@ -35,7 +51,7 @@ ApplicationWindow {
     Label {
         id: lblMsg
         width: ApplicationWindow.width - 20
-        text: message
+        text: boxMessage
         x: 20
         y: 20
         wrapMode: Label.WordWrap
