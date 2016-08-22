@@ -8,6 +8,7 @@
 # How to use
 
 1. Create a .qml file called 'MaterialMessageBox.qml'.
+
 2. Add this code to it:
    ```qml
    MaterialMessageBox {
@@ -18,7 +19,9 @@
         }
     }
     ```
+   
 3. To call the MessageBox, you need to do this: ```qmlmsgBoxId.visible = true```.
+
    Example:
    ```qml
    button1.onClicked: {
